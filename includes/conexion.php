@@ -1,7 +1,7 @@
 <?php 
 	const SERVER = "localhost";
 	const USUARIO = "root";
-	const CLAVE = "";
+	const CLAVE = "vamolarenga";
 	const BASE = "tecnico_programacion"; 
 
 	$link = mysqli_connect(SERVER, USUARIO, CLAVE, BASE);

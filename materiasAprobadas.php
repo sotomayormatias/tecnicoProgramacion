@@ -14,9 +14,22 @@
 
 <script type="text/javascript">
 	activarMenu(2);
+
+	function eliminarMateriaAprobada(codMateria){
+	var jsonRequest = new XMLHttpRequest();
+	var url = "delMateriaAprobadaForm.php?codigo="+ codMateria;
+	jsonRequest.onreadystatechange = function() {
+		if (jsonRequest.readyState == 4 && jsonRequest.status == 200){
+			window.location.href = 'materiasAprobadas.php';
+		}
+	};
+	jsonRequest.open("GET", url, true);
+	jsonRequest.send();
+}
 </script>
 
 <h1>Materias Aprobadas</h1>
+<?php if(mysqli_num_rows($resultMaterias) > 0){ ?>
 <div class="table-responsive">
 	<table class="table">
 		<tr>
@@ -33,14 +46,19 @@
 				<td><?php echo $registro['codigo'] ?></td>
 				<td><?php echo $registro['nombre'] ?></td>
 				<td><?php echo $registro['nota'] ?></td>
-				<td><button type='button' onClick='eliminarMateria(<?php echo $registro['codigo'] ?>)' class='btnSinBorde'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button></td>
-				<td><a href="editarMateria.php?codigo=<?php echo $registro['codigo'] ?>&nombre=<?php echo $registro["nombre"] ?>&cuatrimestre=<?php echo $registro["cuatrimestre"] ?>"><span class='glyphicon glyphicon-list-alt' aria-hidden='true'></span></a></td>
+				<td><button type='button' onClick='eliminarMateriaAprobada(<?php echo $registro['codigo'] ?>)' class='btnSinBorde'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button></td>
+				<td><a href="editarMateriaAprobada.php?codigo=<?php echo $registro['codigo'] ?>"><span class='glyphicon glyphicon-list-alt' aria-hidden='true'></span></a></td>
 			</tr>
 		<?php
 			};
 		?>
 	</table>
 </div>
+
+<?php } else { ?>
+	<h2>No existen materias</h2>
+	<input type="button" onclick="location.href='agregarMateriaAprobada.php'" value="Agregar Materia" class="btn btn-primary center-block" name="addButton">
+<?php } ?>
 
 <?php  
 	require "includes/footer.php";

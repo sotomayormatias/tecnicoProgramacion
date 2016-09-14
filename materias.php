@@ -14,24 +14,15 @@
 	activarMenu(1);
 
 	function eliminarMateria(codMateria){
-		//$.ajax({
-		//	type: 'POST',
-		//	data: {"codigo": codMateria},
-		//	url: 'delMateriasForm.php',
-		//	success: function(){
-		//		window.location.href = 'materias.php';
-		//	}
-		//});
-
 		var jsonRequest = new XMLHttpRequest();
-			var url = "delMateriasForm.php?codigo="+ codMateria;
-			jsonRequest.open("GET", url, true);
-			jsonRequest.send();
-			jsonRequest.onreadystatechange = function() {
-				if (jsonRequest.readyState == 4 && jsonRequest.status == 200){
-					window.location.href = 'materias.php';
-				}
-			};
+		var url = "delMateriasForm.php?codigo="+ codMateria;
+		jsonRequest.onreadystatechange = function() {
+			if (jsonRequest.readyState == 4 && jsonRequest.status == 200){
+				window.location.href = 'materias.php';
+			}
+		};
+		jsonRequest.open("GET", url, true);
+		jsonRequest.send();
 	}
 </script>
 
@@ -54,7 +45,7 @@
 				<td><?php echo $registro['nombre'] ?></td>
 				<td><?php echo $registro['cuatrimestre'] ?></td>
 				<td><button type='button' onClick='eliminarMateria(<?php echo $registro['codigo'] ?>)' class='btnSinBorde'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button></td>
-				<td><a href="editarMateria.php?codigo=<?php echo $registro['codigo'] ?>&nombre=<?php echo $registro["nombre"] ?>&cuatrimestre=<?php echo $registro["cuatrimestre"] ?>"><span class='glyphicon glyphicon-list-alt' aria-hidden='true'></span></a></td>
+				<td><a href="editarMateria.php?codigo=<?php echo $registro['codigo'] ?>"><span class='glyphicon glyphicon-list-alt' aria-hidden='true'></span></a></td>
 			</tr>
 		<?php
 			};

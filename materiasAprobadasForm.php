@@ -12,6 +12,6 @@
 	
 	mysqli_close($link);
 	header("location:materiasAprobadas.php");
-	
+
 	require_once('includes/footer.php'); 
 ?>
