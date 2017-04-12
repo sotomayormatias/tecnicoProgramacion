@@ -17,7 +17,7 @@
 			<ul class="nav navbar-nav">
 				<li id="menuProductos"><a href="materias.php">Materias</a></li>
 				<li id="menuVentas"><a href="materiasAprobadas.php">Materias Aprobadas</a></li>
-				<li id="menuClientes"><a href="mat_disp.php">Materias Disponibles</a></li>
+				<li id="menuClientes"><a href="materiasDisponibles.php">Materias Disponibles</a></li>
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->

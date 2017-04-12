@@ -46,7 +46,7 @@
 				<td><?php echo $registro['codigo'] ?></td>
 				<td><?php echo $registro['nombre'] ?></td>
 				<td><?php echo $registro['nota'] ?></td>
-				<td><button type='button' onClick='eliminarMateriaAprobada(<?php echo $registro['codigo'] ?>)' class='btnSinBorde'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button></td>
+				<td><button type='button' onClick='eliminarMateriaAprobada("<?php echo $registro['codigo'] ?>")' class='btnSinBorde'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button></td>
 				<td><a href="editarMateriaAprobada.php?codigo=<?php echo $registro['codigo'] ?>"><span class='glyphicon glyphicon-list-alt' aria-hidden='true'></span></a></td>
 			</tr>
 		<?php
