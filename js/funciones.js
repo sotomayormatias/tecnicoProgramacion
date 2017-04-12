@@ -43,3 +43,26 @@ function activarMenu(idMenu){
 			$("#menuBuscador").removeClass("active");
 	}
 }
+
+function eliminarMateria(codMateria, esAprobada){
+	debugger;
+	var jsonRequest = new XMLHttpRequest();
+	if(esAprobada){
+	var url = "delMateriaAprobadaForm.php?codigo="+ codMateria;
+	}
+	else {
+		var url = "delMateriasForm.php?codigo="+ codMateria;
+	}
+	jsonRequest.onreadystatechange = function() {
+		if (jsonRequest.readyState == 4 && jsonRequest.status == 200){
+			if(esAprobada){
+				window.location.href = 'materiasAprobadas.php';
+			}
+			else {
+				window.location.href = 'materias.php';
+			}
+		}
+	};
+	jsonRequest.open("GET", url, true);
+	jsonRequest.send();
+}
